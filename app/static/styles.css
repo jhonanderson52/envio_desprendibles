@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    max-width: 90%;
+    max-width: 50%;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -47,7 +47,7 @@ button {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 50%;
+    width: 30%;
     box-sizing: border-box;
 }
 
@@ -57,6 +57,24 @@ input, select {
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250%;
+    box-sizing: border-box;
+}
+
+#asunto {
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150%;
     box-sizing: border-box;
 }
 

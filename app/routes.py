@@ -40,14 +40,16 @@ def get_emails_from_database():
 def index():
     if request.method == 'POST':
         email = request.form.get('email')
-        subject = 'Envío de Archivos Adjuntos'
-        message = 'Este es un correo con archivos adjuntos'
+        subject = request.form.get('subject')  # Captura el asunto del formulario
+        body = request.form.get('body')  # Captura el cuerpo del correo del formulario
+                #subject = 'Envío de Archivos Adjuntos'
+        #message = 'Este es un correo con archivos adjuntos'
 
         attachments = request.files.getlist('attachment')
 
         if attachments:
             msg = Message(subject, recipients=[email])
-            msg.body = message
+            msg.body = body
 
             # Adjuntar todos los archivos al mensaje
             for file in attachments:

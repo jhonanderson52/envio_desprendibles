@@ -30,7 +30,15 @@
                             <option value="{{ email }}">{{ email }}</option>
                         {% endfor %}
                     </select>
-               
+
+                    <label for="subject">Asunto:</label>
+                    <input id="asunto" type="text" name="subject" id="subject" required>
+                </div>
+                <div class="form-row">
+                    <label for="body">Mensaje:</label>
+                    <textarea name="body" id="body" rows="4" required></textarea>
+                </div>
+                <div class="form-row">
                     <label for="attachment">Archivos Adjuntos:</label>
                     <input type="file" name="attachment" id="attachment" accept=".pdf,.doc,.docx,.txt" multiple required>
                     <button type="submit">Enviar</button>
