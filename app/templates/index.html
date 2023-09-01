@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envio de Archivo Adjunto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+            <!--<h1>Envío de Archivo Adjunto por Correo Electrónico</h1>
+            <form action="/" method="post" enctype="multipart/form-data">
+                <label for="email">Correo Electrónico:</label>
+                <select name="email" id="email" required>
+                    {% for email in emails %}
+                        <option value="{{ email }}">{{ email }}</option>
+                    {% endfor %}
+                </select><br>
+                
+                <label for="attachment">Archivo Adjunto:</label>
+                <input type="file" name="attachment" id="attachment" accept=".pdf,.doc,.docx,.txt" multiple required><br>
+                
+                <button type="submit">Enviar</button>
+            </form>-->
+            <form action="/" method="post" enctype="multipart/form-data" class="form-container">
+                <div class="form-row">
+                    <label for="email">Correo Electrónico:</label>
+                    <select name="email" id="email" required>
+                        {% for email in emails %}
+                            <option value="{{ email }}">{{ email }}</option>
+                        {% endfor %}
+                    </select>
+               
+                    <label for="attachment">Archivos Adjuntos:</label>
+                    <input type="file" name="attachment" id="attachment" accept=".pdf,.doc,.docx,.txt" multiple required>
+                    <button type="submit">Enviar</button>
+                </div>
+            </form>
+    </div>
+</body>
+</html>

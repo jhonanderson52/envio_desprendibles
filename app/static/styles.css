@@ -1,0 +1,86 @@
+/* Resetear algunos estilos por defecto */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el formulario */
+/* Alinear todos los elementos en una sola fila */
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Espaciado entre elementos */
+.form-row label,
+.form-row select,
+.form-row input,
+.form-row button {
+    margin-right: 10px;
+}
+
+/*form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}*/
+
+button {
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+input, select {
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+label {
+    margin: 10px 1px 5px 5px;
+    padding: 5px 0px 5px 20px;
+    width: 30%;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #408ddf;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #408ddf;
+}
+
+/* Estilos para el encabezado */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #408ddf;
+}
