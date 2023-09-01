@@ -4,46 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Envio de Archivos Adjuntos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='email_search.js') }}"></script>
+
 </head>
-<body>
-    <div class="container">
-            <h1>Envío de Archivo Adjunto por Correo Electrónico</h1>
-            <!--<form action="/" method="post" enctype="multipart/form-data">
-                <label for="email">Correo Electrónico:</label>
-                <select name="email" id="email" required>
-                    {% for email in emails %}
-                        <option value="{{ email }}">{{ email }}</option>
-                    {% endfor %}
-                </select><br>
-                
-                <label for="attachment">Archivo Adjunto:</label>
-                <input type="file" name="attachment" id="attachment" accept=".pdf,.doc,.docx,.txt" multiple required><br>
-                
-                <button type="submit">Enviar</button>
-            </form>-->
+<body id="body-e">
+    <div class="container-e">
+            <h1 id="h1-e">Envio de Archivos Adjuntos</h1>
+            
             <form action="/" method="post" enctype="multipart/form-data" class="form-container">
-                <div class="form-row">
-                    <label for="email">Correo Electrónico:</label>
-                    <select name="email" id="email" required>
+                <div class="form-row-e">
+                    <label id="label-e" for="email">Email:</label>
+                    
+                    <select id="select-e" name="email" id="email" required>
                         {% for email in emails %}
                             <option value="{{ email }}">{{ email }}</option>
                         {% endfor %}
                     </select>
+                    
+                    <!--<input type="text" id="emailInput" placeholder="Escribe para buscar y seleccionar el correo" autocomplete="off" list="emailOptions">
+                    <datalist id="emailOptions"></datalist>
+                    
+                    <script>
+                        $(document).ready(function() {
+                            $('#emailInput').on('input', function() {
+                                var query = $(this).val();
+                                $.get('/search_emails', { query: query }, function(data) {
+                                    var options = '';
+                                    for (var i = 0; i < data.length; i++) {
+                                        options += '<option value="' + data[i] + '">' + data[i] + '</option>';
+                                    }
+                                    $('#emailOptions').html(options).trigger('change');
+                                });
+                            });
+                        });
+                    </script>-->
+                        
 
-                    <label for="subject">Asunto:</label>
+                    
+                    <!--<div id="emailOptions" class="email-options"></div>-->
+
+                    
+                    
+
+                    <label id="label-e" for="subject">Asunto:</label>
                     <input id="asunto" type="text" name="subject" id="subject" required>
                 </div>
-                <div class="form-row">
-                    <label for="body">Mensaje:</label>
-                    <textarea name="body" id="body" rows="4" required></textarea>
+                <div class="form-row-e">
+                    <label id="label-e" for="body">Mensaje:</label>
+                    <textarea id="textarea-e" name="body" id="body" rows="4" required></textarea>
                 </div>
-                <div class="form-row">
-                    <label for="attachment">Archivos Adjuntos:</label>
-                    <input type="file" name="attachment" id="attachment" accept=".pdf,.doc,.docx,.txt" multiple required>
-                    <button type="submit">Enviar</button>
+                <div class="form-row-e">
+                    <label id="label-e" for="attachment">Archivos Adjuntos:</label>
+                    <input class="input-e" type="file" name="attachment" id="attachment" accept=".pdf,.doc,.docx,.txt" multiple required>
+                    <button id="button-e" type="submit">Enviar</button>
                 </div>
             </form>
+
     </div>
+
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Correo Enviado Exitosamente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Los correos fueron enviados exitosamente.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#successModal').modal('show'); // Muestra el modal al cargar la página
+        });
+    </script>
+    
+    <script>
+        $(document).ready(function() {
+            // Bloquear el formulario después de enviar
+            $('#submit-btn').on('click', function() {
+                $(this).prop('disabled', true);
+                $('#emailInput').prop('disabled', true);
+                $('#asunto').prop('disabled', true);
+                $('#body').prop('disabled', true);
+                $('#attachment').prop('disabled', true);
+            });
+    
+            // Desbloquear el formulario al volver al formulario
+            $('#return-btn').on('click', function() {
+                $('#submit-btn').prop('disabled', false);
+                $('#emailInput').prop('disabled', false);
+                $('#asunto').prop('disabled', false);
+                $('#body').prop('disabled', false);
+                $('#attachment').prop('disabled', false);
+            });
+        });
+    </script>
+
 </body>
 </html>

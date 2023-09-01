@@ -1,17 +1,17 @@
 /* Resetear algunos estilos por defecto */
-body, h1, p {
+#body-e, #h1-e, #p-e {
     margin: 0;
     padding: 0;
 }
 
 /* Estilos para el cuerpo de la página */
-body {
+#body-e {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     color: #333;
 }
 
-.container {
+.container-e {
     max-width: 50%;
     margin: 0 auto;
     padding: 20px;
@@ -22,17 +22,17 @@ body {
 
 /* Estilos para el formulario */
 /* Alinear todos los elementos en una sola fila */
-.form-row {
+.form-row-e {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
 /* Espaciado entre elementos */
-.form-row label,
-.form-row select,
-.form-row input,
-.form-row button {
+.form-row-e label,
+.form-row-e select,
+.form-row-e input,
+.form-row-e button {
     margin-right: 10px;
 }
 
@@ -42,16 +42,16 @@ body {
     align-items: center;
 }*/
 
-button {
+#button-e {
     margin: 10px 0;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 30%;
+    width: 20%;
     box-sizing: border-box;
 }
 
-input, select {
+.input-e, #input-e, #select-e {
     margin: 10px 0;
     padding: 8px;
     border: 1px solid #ccc;
@@ -60,7 +60,7 @@ input, select {
     box-sizing: border-box;
 }
 
-textarea {
+#textarea-e {
     margin: 10px 0;
     padding: 8px;
     border: 1px solid #ccc;
@@ -78,26 +78,26 @@ textarea {
     box-sizing: border-box;
 }
 
-label {
+#label-e {
     margin: 10px 1px 5px 5px;
     padding: 5px 0px 5px 20px;
     width: 30%;
     box-sizing: border-box;
 }
 
-button {
+#button-e {
     background-color: #408ddf;
     color: #fff;
     border: none;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #408ddf;
+#button-e:hover {
+    background-color: #267fe4;
 }
 
 /* Estilos para el encabezado */
-h1 {
+#h1-e {
     text-align: center;
     margin-bottom: 20px;
     color: #408ddf;
