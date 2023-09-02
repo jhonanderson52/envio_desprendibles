@@ -7,6 +7,9 @@ from flask import jsonify
 
 app = Flask(__name__)
 
+# Configuración de MAX_CONTENT_LENGTH
+app.config['MAX_CONTENT_LENGTH'] = 22 * 1024 * 1024  # 20 MB en bytes
+
 # Configuración de Flask-Mail
 app.config['MAIL_SERVER'] = MAIL_SERVER
 app.config['MAIL_PORT'] = MAIL_PORT
