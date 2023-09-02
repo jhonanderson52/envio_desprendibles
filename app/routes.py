@@ -49,24 +49,46 @@ def index():
         body = request.form.get('body')  
 
         attachments = request.files.getlist('attachment')
-
+        
         if attachments:
             msg = Message(subject, recipients=[email])
             msg.body = body
+
+            total_attachments_size = 0  # Inicializa la variable para el tamaño total
 
             # Adjuntar todos los archivos al mensaje
             for file in attachments:
                 if file.filename:
                     filename = file.filename
+                    filesize = file.__sizeof__
                     upload_path = Path(__file__).parent / 'uploads' / filename
+                    print(filesize) 
                     file.save(upload_path)
                     with open(upload_path, 'rb') as fp:
                         msg.attach(filename, 'application/octet-stream', fp.read())
+            
+                    total_attachments_size += Path(upload_path).stat().st_size  # Suma el tamaño del archivo
+                    print('El tamaño de los archivos es', total_attachments_size)
+
+                    if total_attachments_size > 10 * 1024 * 1024:  # 10 MB en bytes
+                        return 'El tamaño total de los archivos adjuntos excede el límite de 10 MB'
 
             # Enviar el mensaje con todos los archivos adjuntos
             mail.send(msg)
 
-            return redirect(url_for('success'))
+            # Elimina los archivos adjuntos después de enviar el correo
+            for file in attachments:
+                if file.filename:
+                    upload_path = Path(__file__).parent / 'uploads' / file.filename
+                    upload_path.unlink()  # Elimina el archivo
+
+            sent_successfully = True
+
+            return render_template('index.html', emails=emails, sent_successfully=sent_successfully)
+
+        else:
+
+            return 'No se han adjuntado archivos'
 
     emails = get_emails_from_database()
 

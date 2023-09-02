@@ -86,13 +86,15 @@
             </div>
         </div>
     </div>
-
-    <script>
-        $(document).ready(function() {
-            $('#successModal').modal('show'); // Muestra el modal al cargar la página
-        });
-    </script>
     
+    {% if sent_successfully %}
+    <script>
+            $(document).ready(function() {
+            $('#successModal').modal('show'); // Muestra el modal al cargar la página
+            });
+    </script>
+    {% endif %}
+
     <script>
         $(document).ready(function() {
             // Bloquear el formulario después de enviar

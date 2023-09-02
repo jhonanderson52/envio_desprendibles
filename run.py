@@ -1,7 +1,7 @@
 from app.routes import app  # Importa la instancia de la aplicación Flask desde app.py
 
 if __name__ == '__main__':
-   app.run(debug=True)
+    app.run(debug=True)
 #from app.routes import app  # Importa la instancia de la aplicación Flask desde app.py
 #from waitress import serve  # Importa la función serve de Waitress
 
